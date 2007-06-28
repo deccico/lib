@@ -23,8 +23,9 @@ private:
 public:
     __fastcall tini();
     __fastcall ~tini();
-    AnsiString __fastcall LeerString(AnsiString seccion, AnsiString valor, AnsiString valor_defecto);
+    AnsiString __fastcall ReadString(AnsiString seccion, AnsiString valor, AnsiString valor_defecto);
     int __fastcall ReadInteger(AnsiString seccion, AnsiString valor, int valor_defecto);
+    bool __fastcall ReadBool(AnsiString seccion, AnsiString valor, bool valor_defecto);
 };
 //---------------------------------------------------------------------------
 

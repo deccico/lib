@@ -36,7 +36,7 @@ int __fastcall tini::ReadInteger(AnsiString seccion, AnsiString valor, int valor
 
 
 //---------------------------------------------------------------------------
-AnsiString __fastcall tini::LeerString(AnsiString seccion,
+AnsiString __fastcall tini::ReadString(AnsiString seccion,
                                         AnsiString valor,
                                         AnsiString valor_defecto)
 {
@@ -44,6 +44,18 @@ AnsiString __fastcall tini::LeerString(AnsiString seccion,
     ini->WriteString(seccion, valor, s);
 
     return s;
+}
+//---------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------
+bool __fastcall tini::ReadBool(AnsiString seccion,
+                                        AnsiString valor,
+                                        bool valor_defecto)
+{
+    bool r = ini->ReadBool(seccion, valor, valor_defecto);
+    ini->WriteBool(seccion, valor, r);
+
+    return r;
 }
 //---------------------------------------------------------------------------
 
