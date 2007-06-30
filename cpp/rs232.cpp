@@ -223,6 +223,7 @@ int __fastcall TRS232::mGetnReceived()
 }
 //---------------------------------------------------------------------------
 
+//TODO:esto está en str.cpp
 AnsiString __fastcall TRS232::mEmpaquetar(AnsiString sComando)
 {
   AnsiString sTop,sCmd,sFSN;

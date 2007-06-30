@@ -420,4 +420,65 @@ double __fastcall DameFlotanteDec(AnsiString str)
 //---------------------------------------------------------------------------
 
 
+//---------------------------------------------------------------------------
+AnsiString GenerarTextoAlAzar(int len)
+{
+    AnsiString resultado;
+
+    randomize();
+    for(int i=0; i<len/2; ++i)
+        resultado += AnsiString::IntToHex(rand() % 100,2);
+
+    return resultado;
+}
+//---------------------------------------------------------------------------
+
+
+AnsiString __fastcall EncriptarConMime64(const AnsiString &text)
+{
+    int len = text.Length();
+    AnsiString ret;
+
+    char *resultado = (char *) malloc(len * 2);
+    char *pivote = (char *) malloc(len * 2);
+    Encriptar(text.c_str(), pivote, len);
+    ToMime64(pivote, resultado, strlen(pivote));
+
+    ret = mEmpaquetar(resultado);
+
+    free(pivote);
+    free(resultado);
+
+    return ret;
+}
+//---------------------------------------------------------------------------
+
+AnsiString __fastcall mEmpaquetar(AnsiString sComando)
+{
+  AnsiString sTop,sCmd,sFSN;
+  AnsiString sPaquete,sHeader,sTail,sProcess,s,sData;
+  int nTop,msg;
+  int j;
+  char *c,car;
+
+  //sComando=sComando.UpperCase(); //mayusculas
+  //sComando=mChauCaracter(sComando,' '); //quita blancos
+  if (sComando.IsEmpty())
+        return "-1";
+  sData=sComando;
+
+  s.SetLength(1);
+
+  for (int i=1;i<=sData.Length();i++){
+       s= sData.SubString(i,1);
+       c= s.c_str();
+       car = (char) *c;
+       j=toascii(car);
+       sProcess = sProcess + sProcess.IntToHex(j,2);
+  }
+
+  return sProcess;
+}
+//---------------------------------------------------------------------------
+
 }

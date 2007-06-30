@@ -23,6 +23,9 @@ namespace str_util
     AnsiString __fastcall DameUsuario(const AnsiString &nombre, const AnsiString &apellido);
     AnsiString __fastcall DameFlotante(AnsiString str);
     double __fastcall DameFlotanteDec(AnsiString str);
+    AnsiString GenerarTextoAlAzar(int len);
+    AnsiString __fastcall EncriptarConMime64(const AnsiString &text);
+    AnsiString __fastcall mEmpaquetar(AnsiString sComando);
 
 }
 
