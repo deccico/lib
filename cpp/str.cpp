@@ -129,8 +129,6 @@ bool bEsCuitValido(AnsiString sCuit)
 {
  //return true;
     
- int XX=1;
- int suma = 0;
  bool validacion=true ;
  int coc;
  int resto ;
@@ -140,7 +138,7 @@ bool bEsCuitValido(AnsiString sCuit)
         validacion = false;
     else
         {
-         for (XX=1;XX<=sCuit.Length();XX++)
+         for (int XX=1;XX<=sCuit.Length();XX++)
          {
                  if ((XX!=3)&&(XX!=12))
                  {
@@ -155,7 +153,7 @@ bool bEsCuitValido(AnsiString sCuit)
         };
    if (validacion)
    {
-     suma = (sCuit.SubString(1,1)  * 5 +
+     int suma = (sCuit.SubString(1,1)  * 5 +
              sCuit.SubString(2,1)  * 4 +
              sCuit.SubString(4,1)  * 3 +
              sCuit.SubString(5,1)  * 2 +
