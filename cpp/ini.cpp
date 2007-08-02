@@ -11,6 +11,7 @@
 //---------------------------------------------------------------------------
 __fastcall tini::tini()
 {
+    //TODO:cambiar a un auto_ptr
     ini = new TIniFile(ChangeFileExt( Application->ExeName, ".INI"));
 }
 //---------------------------------------------------------------------------
@@ -56,6 +57,16 @@ bool __fastcall tini::ReadBool(AnsiString seccion,
     ini->WriteBool(seccion, valor, r);
 
     return r;
+}
+//---------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------
+void __fastcall tini::WriteBool(AnsiString seccion,
+                                AnsiString clave,
+                                bool valor)
+{
+    ini->WriteBool(seccion, clave, valor);
 }
 //---------------------------------------------------------------------------
 
