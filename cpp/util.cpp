@@ -1302,3 +1302,45 @@ bool TUtil::apagarWindows(int flag)
 }
 //----------------------------------------------------------------------
 
+
+//----------------------------------------------------------------------
+//crea un proceso y devuelve su handle
+int TUtil::CrearProceso(AnsiString FileName, int Visibility)
+{
+    //char zAppName[1024];
+    //char zCurDir[512];
+    AnsiString zAppName, zCurDir;
+    AnsiString WorkDir;
+    TStartupInfo StartupInfo;
+    TProcessInformation ProcessInfo;
+
+    //strcpy(zAppName, FileName.c_str());
+    zAppName = FileName;
+    WorkDir = GetCurrentDir();
+    //strcpy(zCurDir, WorkDir.c_str());
+    zCurDir = WorkDir;
+    setmem(&StartupInfo, sizeof(StartupInfo), 0);
+
+    StartupInfo.cb = sizeof(StartupInfo);
+    StartupInfo.dwFlags = STARTF_USESHOWWINDOW;
+    StartupInfo.wShowWindow = Visibility;
+
+    if (!CreateProcess(NULL, zAppName.c_str(), // pointer to command line string
+        NULL, // pointer to process security attributes
+        NULL, // pointer to thread security attributes
+        false, // handle inheritance flag
+        CREATE_NEW_CONSOLE | // creation flags
+        NORMAL_PRIORITY_CLASS,
+        NULL, // pointer to new environment block
+        NULL, // pointer to current directory name
+        &StartupInfo, // pointer to STARTUPINFO
+        &ProcessInfo))
+    {
+        return -1; // pointer to PROCESS_INF
+    }
+
+    return (int)ProcessInfo.hProcess;
+}
+//----------------------------------------------------------------------
+
+

@@ -82,7 +82,7 @@ public:
     static unsigned long __fastcall DameSizeArchivo(AnsiString file);
     static AnsiString __fastcall DameErrorSocket(TErrorEvent error);
     static bool apagarWindows(int flag = EWX_POWEROFF);
-
+    static int CrearProceso(AnsiString FileName, int Visibility);
 
 };
 //---------------------------------------------------------------------------
