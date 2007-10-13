@@ -70,3 +70,12 @@ void __fastcall tini::WriteBool(AnsiString seccion,
 }
 //---------------------------------------------------------------------------
 
+//---------------------------------------------------------------------------
+void __fastcall tini::WriteString(AnsiString seccion,
+                                AnsiString clave,
+                                AnsiString valor)
+{
+    ini->WriteString(seccion, clave, valor);
+}
+//---------------------------------------------------------------------------
+
