@@ -28,6 +28,7 @@ public:
     bool __fastcall ReadBool(AnsiString seccion, AnsiString valor, bool valor_defecto);
     void __fastcall WriteBool(AnsiString seccion, AnsiString clave, bool valor);
     void __fastcall tini::WriteString(AnsiString seccion, AnsiString clave, AnsiString valor);
+    bool __fastcall SectionExists(const AnsiString & section);
 
 
 };

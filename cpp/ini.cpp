@@ -79,3 +79,11 @@ void __fastcall tini::WriteString(AnsiString seccion,
 }
 //---------------------------------------------------------------------------
 
+
+//---------------------------------------------------------------------------
+bool __fastcall tini::SectionExists(const AnsiString& section)
+{
+    return ini->SectionExists(section);
+}
+//---------------------------------------------------------------------------
+

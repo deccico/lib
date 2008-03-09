@@ -100,7 +100,7 @@ void __fastcall TRS232::mConectar(AnsiString sPuerto,AnsiString sBaudios,AnsiStr
   //ReadThread = new TRead(false);
   //frmLCD->mEstadoConexion(true);
   bConectado=true;
-  Beep();
+  //Beep();
 
 
 }
@@ -129,7 +129,7 @@ void __fastcall TRS232::mDesconectar()
   }
   //frmLCD->mEstadoConexion(false);
   bConectado=false;
-  Beep();
+  //Beep();
 
 }
 //---------------------------------------------------------------------------
